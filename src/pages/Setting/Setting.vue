@@ -80,8 +80,8 @@ export default {
       this.isLoading = true;
       await StreamAPI.post(this.form).then(({ data }) => {
         this.isLoading = false;
-        this.streamKey = data.data.streamKey;
-        this.streamHost = data.data.streamHost;
+        this.streamKey = data.data.stream_key;
+        this.streamHost = data.data.stream_host;
       });
     },
     onCopy(text) {
