@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+
+// Import only what you need from Bulma
+@import "~bulma/sass/utilities/_all.sass";
+// Set your colors
+// ADD HERE variables you want to override
+$yellow: #D9B384;
+$choco: #A67B77;
+$green: #025159;
+$orange: #c55d53;
+$red: #EE4136;
+$blue: #056CF2;
+$light-blue: #0583F2;
+$primary: $blue;
+$family-sans-serif: 'Open Sans', sans-serif;
+$radius: 10px;
+$link: $green;
+
+$colors: (
+    "white": ($white, $black),
+    "black": ($black, $white),
+    "light": ($light, $light-invert),
+    "dark": ($dark, $dark-invert),
+    "primary": ($primary, $primary-invert),
+    "info": ($info, $info-invert),
+    "success": ($success, $success-invert),
+    "warning": ($yellow, invert($yellow, 100%)),
+    "danger": ($danger, $danger-invert),
+);
+
+
+// Import Bulma and Buefy styles@import "~bulma";
+@import "~bulma/sass/base/_all.sass";
