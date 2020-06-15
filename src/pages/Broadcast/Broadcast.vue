@@ -2,9 +2,9 @@
   <section class="setting">
     <div class="columns">
       <div class="column is-4-desktop">
-        <template v-if="videoOptions">
+        <!-- <template v-if="videoOptions">
           <video-player :options="videoOptions" />
-        </template>
+        </template> -->
         <div>
           <div class="data-form">
             <label>Stream Host</label>
@@ -25,8 +25,8 @@
         </div>
       </div>
       <div class="column is-8-desktop">
-        <chat-list/>
-        <chat-compose/>
+        <chat-list :chat-room-id="chatRoomId"/>
+        <chat-compose :chat-room-id="chatRoomId"/>
       </div>
     </div>
   </section>
@@ -36,7 +36,7 @@ import { mapState } from 'vuex';
 
 import { ToastProgrammatic as Toast } from 'buefy';
 
-import VideoPlayer from '@/components/video/VideoPlayer.vue';
+// import VideoPlayer from '@/components/video/VideoPlayer.vue';
 import ChatList from '@/components/chat/List.vue';
 import ChatCompose from '@/components/chat/Compose.vue';
 
@@ -70,7 +70,7 @@ export default {
     }),
   },
   components: {
-    VideoPlayer,
+    // VideoPlayer,
     ChatList,
     ChatCompose,
   },
@@ -94,6 +94,7 @@ export default {
         };
         this.stream_key = data.data.stream_key;
         this.stream_id = data.data.stream_id;
+        this.chatRoomId = data.data.room_id;
       });
     },
   },

@@ -5,8 +5,8 @@
         <video autoplay ref="videoPlayer" class="video-js"></video>
       </div>
       <div class="column is-5-desktop is-12-mobile">
-        <chat-list/>
-        <chat-compose/>
+        <chat-list :chat-room-id="chatRoomId"/>
+        <chat-compose :chat-room-id="chatRoomId"/>
       </div>
     </div>
   </section>
@@ -25,6 +25,7 @@ export default {
     return {
       videoOptions: null,
       isLoading: true,
+      chatRoomId: null,
     };
   },
   computed: {
@@ -57,6 +58,8 @@ export default {
             },
           ],
         };
+        this.chatRoomId = data.data.room_id;
+
         this.player = videojs(this.$refs.videoPlayer, this.videoOptions, function onPlayerReady() {
           console.log('onPlayerReady', this);
         });
