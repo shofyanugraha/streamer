@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       chats: [],
-      ref: firebase.database().ref('chatrooms/'),
+      ref: null,
       isLoading: true,
     };
   },
@@ -40,7 +40,8 @@ export default {
   },
   methods: {
     async loadMessage() {
-      if (this.chatRoomId !== '') {
+      if (this.chatRoomId !== '' && this.chatRoomId !== null) {
+        this.ref = await firebase.database().ref(`chatrooms/${this.chatRoomId}/chats`);
         const joinData = await firebase.database().ref(`chatrooms/${this.chatRoomId}/chats`).push();
         joinData.set({
           type: 'join',
