@@ -15,7 +15,7 @@ export default {
   props: {
     chatRoomId: {
       type: String,
-      default: '-M9qng51pgSkDribW-Me',
+      default: '',
     },
   },
   components: {
@@ -33,23 +33,30 @@ export default {
       user: (state) => state.auth.user,
     }),
   },
+  watch: {
+    chatRoomId() {
+      this.loadMessage();
+    },
+  },
   methods: {
     async loadMessage() {
-      const joinData = await firebase.database().ref(`chatrooms/${this.chatRoomId}/chats`).push();
-      joinData.set({
-        type: 'join',
-        user: this.user.name,
-        message: `${this.user.name} has joined this room.`,
-        sendDate: Date(),
-      });
-      await firebase.database().ref(`chatrooms/${this.chatRoomId}/chats`).on('value', (snapshot) => {
-        this.chats = [];
-        snapshot.forEach((doc) => {
-          const item = doc.val();
-          item.key = doc.key;
-          this.chats.push(item);
+      if (this.chatRoomId !== '') {
+        const joinData = await firebase.database().ref(`chatrooms/${this.chatRoomId}/chats`).push();
+        joinData.set({
+          type: 'join',
+          user: this.user.name,
+          message: `${this.user.name} has joined this room.`,
+          sendDate: Date(),
         });
-      });
+        await firebase.database().ref(`chatrooms/${this.chatRoomId}/chats`).on('value', (snapshot) => {
+          this.chats = [];
+          snapshot.forEach((doc) => {
+            const item = doc.val();
+            item.key = doc.key;
+            this.chats.push(item);
+          });
+        });
+      }
     },
   },
   mounted() {
