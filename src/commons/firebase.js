@@ -1,10 +1,10 @@
 import * as firebase from 'firebase';
 
 const config = {
-  apiKey: 'AIzaSyCdpk-1XHEaakmPjhoW7PxRt_L1PH4Pzww',
+  apiKey: process.env.VUE_APP_API_KEY,
   authDomain: 'YOUR_AUTH_DOMAIN',
-  databaseURL: 'https://streamer-3959d.firebaseio.com/',
-  projectId: 'streamer-3959d',
+  databaseURL: process.env.VUE_APP_DATABASE_URL,
+  projectId: process.env.VUE_APP_PROJECT_ID,
   storageBucket: 'YOUR_STORAGE_BUCKET',
 };
 firebase.initializeApp(config);
