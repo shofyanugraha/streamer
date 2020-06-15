@@ -144,6 +144,7 @@ input[type="password"] {
     color: #9b9b9b;
     z-index: 9;
     cursor: text;
+    pointer-events: none;
   }
 
   &::after,
