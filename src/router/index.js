@@ -7,6 +7,7 @@ import Dashboard from '@/pages/Dashboard/Dashboard.vue';
 import Player from '@/pages/Player/Player.vue';
 import Assets from '@/pages/Player/Assets.vue';
 import Setting from '@/pages/Setting/Setting.vue';
+import Broadcast from '@/pages/Broadcast/Broadcast.vue';
 
 Vue.use(VueRouter);
 
@@ -47,6 +48,14 @@ const routes = [
     path: '/setting',
     name: 'setting',
     component: Setting,
+    meta: {
+      layout: 'default',
+    },
+  },
+  {
+    path: '/broadcast/:id',
+    name: 'Broadcast',
+    component: Broadcast,
     meta: {
       layout: 'default',
     },

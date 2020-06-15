@@ -13,7 +13,8 @@
           </div>
         </template>
         <div v-else class="has-text-centered">
-          No livestreaming right now
+          <p style="margin-bottom: .75em">No livestreaming right now</p>
+          <generator/>
         </div>
       </template>
     </div>
@@ -38,6 +39,7 @@
 import { mapState } from 'vuex';
 
 import VideoCard from '@/components/video/Card.vue';
+import Generator from '@/components/video/Generate.vue';
 
 // Services
 import StreamAPI from '@/commons/api/streams';
@@ -67,6 +69,7 @@ export default {
   },
   components: {
     VideoCard,
+    Generator,
   },
   methods: {
     async fetchStreams() {

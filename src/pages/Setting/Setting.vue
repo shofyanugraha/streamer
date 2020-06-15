@@ -200,87 +200,13 @@ export default {
 <style lang="scss" scoped>
 .setting{
   padding: 0;
-  overflow: hidden;
+  over  ow: hidden;
   @media screen and (min-width: $tablet){
     padding: 2rem 0;
   }
 }
 .generator {
   margin-bottom: 2rem;
-}
-.compose-message-holder{
-  background: #FFFFFF;
-  box-shadow: 0px 10px 20px rgba(54, 147, 164, 0.2012);
-  border-radius: 10px;
-  padding: 1em;
-}
-.composer-message{
-  display: flex;
-  flex-wrap: wrap;
-  .composer-input{
-    display: flex;
-    max-width: 90%;
-    flex: 90%;
-
-    &.composer-button{
-      max-width: 10%;
-      flex: 10%;
-    }
-    .composer-input-message, .button{
-      flex-direction: column;
-      height: 100%;
-      width: 100%;
-    }
-    .composer-input-message{
-      border-radius: 10px;
-      border: 1px solid $green;
-      border-bottom-right-radius: 0;
-      border-top-right-radius: 0;
-      border-right: none;
-      padding: 1em 1.25em;
-      height: auto !important;
-      &:focus, &:focus-within {
-        outline: none;
-      }
-
-    }
-  }
-}
-
-.chat-box {
-    height: 500px;
-    width: 100%;
-    overflow: scroll;
-  }
-
-.chat-status, .chat-bubble{
-  font-size: 12px;
-  color: #9B9B9B;
-  background: #FFFFFF;
-  box-shadow: 0px 10px 20px rgba(118, 176, 177, 0.404693);
-  border-radius: $radius;
-  padding: .5em .75em;
-  margin-bottom: 1.5em;
-  display:inline-block;
-}
-
-.chat-bubble{
-  color: invert($yellow, 30%);
-  background: $yellow;
-  border-radius: $radius $radius $radius $radius/2;
-  &.chat-self {
-    background: $primary;
-    color: #fff;
-    border-radius: $radius $radius $radius/2 $radius;
-
-  }
-  .msg-name{
-    font-weight: bold;
-  }
-  .msg-date{
-    font-size: 10px;
-  }
-
 }
 ::v-deep{
   .errors{
