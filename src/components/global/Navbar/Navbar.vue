@@ -40,10 +40,7 @@
               </div>
             </a>
             <b-dropdown-item custom aria-role="menuitem">
-              <router-link class="act-title" to="/setting">Setting</router-link>
-            </b-dropdown-item>
-            <b-dropdown-item custom aria-role="menuitem">
-              <router-link class="act-title" to="/logout">Logout</router-link>
+              <router-link class="act-title" to="/">Logout</router-link>
             </b-dropdown-item>
           </b-dropdown>
         </div>
