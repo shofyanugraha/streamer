@@ -5,7 +5,8 @@
         <video autoplay ref="videoPlayer" class="video-js"></video>
       </div>
       <div class="column is-5-desktop is-12-mobile">
-
+        <chat-list/>
+        <chat-compose/>
       </div>
     </div>
   </section>
@@ -15,7 +16,8 @@ import { mapState } from 'vuex';
 
 import videojs from 'video.js';
 import AssetsAPI from '@/commons/api/assets';
-import firebase from '@/commons/firebase';
+import ChatList from '@/components/chat/List.vue';
+import ChatCompose from '@/components/chat/Compose.vue';
 
 export default {
   name: 'Player',
@@ -38,7 +40,7 @@ export default {
     }),
   },
   components: {
-
+    ChatList, ChatCompose,
   },
   methods: {
     async fetchAssets() {
@@ -63,11 +65,6 @@ export default {
   },
   async mounted() {
     this.fetchAssets();
-    const vidId = this.$route.params.id;
-    console.log(vidId);
-    const test = await firebase.database().ref('/chatrooms').orderByChild('roomName').equalTo(vidId)
-      .once('value');
-    console.log(test);
   },
 };
 </script>
