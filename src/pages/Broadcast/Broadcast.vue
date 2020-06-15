@@ -25,8 +25,10 @@
         </div>
       </div>
       <div class="column is-8-desktop">
-        <chat-list :chat-room-id="chatRoomId"/>
-        <chat-compose :chat-room-id="chatRoomId"/>
+        <template v-id="chatRoomId">
+          <chat-list :chat-room-id="chatRoomId"/>
+          <chat-compose :chat-room-id="chatRoomId"/>
+        </template>
       </div>
     </div>
   </section>

@@ -5,8 +5,10 @@
         <video autoplay ref="videoPlayer" class="video-js"></video>
       </div>
       <div class="column is-5-desktop is-12-mobile">
-        <chat-list :chat-room-id="chatRoomId"/>
-        <chat-compose :chat-room-id="chatRoomId"/>
+        <template v-id="chatRoomId">
+          <chat-list :chat-room-id="chatRoomId"/>
+          <chat-compose :chat-room-id="chatRoomId"/>
+        </template>
       </div>
     </div>
   </section>
