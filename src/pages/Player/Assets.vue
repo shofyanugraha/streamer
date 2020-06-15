@@ -14,7 +14,7 @@
 import { mapState } from 'vuex';
 
 import videojs from 'video.js';
-import StreamAPI from '@/commons/api/streams';
+import AssetsAPI from '@/commons/api/assets';
 import firebase from '@/commons/firebase';
 
 export default {
@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     async fetchAssets() {
-      await StreamAPI.get(this.$route.params.id).then(({ data }) => {
+      await AssetsAPI.get(this.$route.params.id).then(({ data }) => {
         this.isLoading = false;
         this.videoOptions = {
           autoplay: true,
@@ -61,10 +61,12 @@ export default {
       });
     },
   },
-  mounted() {
+  async mounted() {
     this.fetchAssets();
     const vidId = this.$route.params.id;
-    const test = firebase.database().ref('/chatrooms').orderByChild('roomName').equalTo(vidId);
+    console.log(vidId);
+    const test = await firebase.database().ref('/chatrooms').orderByChild('roomName').equalTo(vidId)
+      .once('value');
     console.log(test);
   },
 };

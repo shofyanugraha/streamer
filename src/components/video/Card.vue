@@ -3,7 +3,7 @@
     <router-link
       class="card"
       :to="{
-        name: 'Player',
+        name: type,
         params: {
           id: data && data.id !== undefined && data.id ? data.id : 1
         }
@@ -11,8 +11,9 @@
       slot="reference"
     >
       <div class="card-image">
+        <span class="live" v-if="type === 'player'">Live</span>
         <figure class="image is-16by9">
-          <img :src="imageUrl" alt="Placeholder image" />
+          <img :src="imageUrl" :alt="`Stream ${data.id}` " />
         </figure>
       </div>
       <div class="card-content">
@@ -21,7 +22,7 @@
             <div class="icon">
               <img svg-inline src="@/assets/images/svg/author.svg" />
             </div>
-            <span>{{ data && data.name !== undefined ? data.name : 'name'  }}</span>
+            <span>{{ data && data.username !== undefined ? data.username : 'name'  }}</span>
           </div>
         </div>
       </div>
@@ -29,7 +30,6 @@
   </div>
 </template>
 <script>
-import API_URL from '@/commons/config';
 
 export default {
   name: 'Card',
@@ -41,11 +41,15 @@ export default {
       type: Object,
       default: () => {},
     },
+    type: {
+      type: String,
+      default: 'player',
+    },
   },
   computed: {
     imageUrl() {
-      if (this.data && this.data.image !== undefined) {
-        return API_URL + this.data.image.url;
+      if (this.data && this.data.thumbnail_url !== undefined) {
+        return this.data.thumbnail_url;
       }
       return '/img/video/default.jpg';
     },
@@ -65,6 +69,18 @@ export default {
   }
   .card-content {
     padding: 1rem;
+  }
+  .card-image {
+    position:relative;
+    .live{
+      position: absolute;
+      background: $red;
+      padding: .5em .8rem;
+      font-size: 13px;
+      line-height: 120%;
+      left: .5rem;
+      top: .5rem;
+    }
   }
 }
 .title {

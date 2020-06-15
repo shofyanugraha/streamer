@@ -6,7 +6,7 @@
         <template v-if="streams.length > 0">
           <div class="columns is-multiline is-mobile">
               <div v-for="data in streams"
-                class="column is-6-mobile is-4-tablet is-3-desktop is-3-fullhd"
+                class="column is-12-mobile is-4-tablet is-3-desktop is-3-fullhd"
                 :key="data.id">
                 <video-card :data="data"/>
               </div>
@@ -23,8 +23,8 @@
         <div v-if="assets.length > 0" class="columns is-multiline is-mobile" >
             <div v-for="data in assets"
               class="column is-6-mobile is-4-tablet is-3-desktop is-3-fullhd"
-              :key="data.id">
-              <video-card :data="data"/>
+              :key="data.id" >
+              <video-card :data="data" type="assets"/>
             </div>
         </div>
         <div v-else class="has-text-centered">

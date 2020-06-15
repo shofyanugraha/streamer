@@ -9,6 +9,9 @@ import id from 'vee-validate/dist/locale/id.json';
 import VueChatScroll from 'vue-chat-scroll';
 import APIService from '@/commons/api.service';
 import VueClipboard from 'vue-clipboard2';
+import VueTextareaAutosize from 'vue-textarea-autosize';
+import VueMoment from 'vue-moment';
+
 import App from './App.vue';
 import './registerServiceWorker';
 import router from './router';
@@ -34,6 +37,8 @@ Vue.component('default-layout', DefaultLayout);
 Vue.use(Buefy);
 Vue.use(VueChatScroll);
 Vue.use(VueClipboard);
+Vue.use(VueTextareaAutosize);
+Vue.use(VueMoment);
 
 APIService.init();
 

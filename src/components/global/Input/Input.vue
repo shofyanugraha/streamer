@@ -1,8 +1,15 @@
 <template>
-  <validation-provider v-slot="{ errors }" :rules="rules" tag="div" :vid="vid" :name="title">
-    <div class="input-group" :class="{ active: active }">
+  <validation-provider
+    v-slot="{ errors }"
+    :rules="rules"
+    tag="div"
+    class="input-group"
+    :vid="vid"
+    :name="title"
+    :class="{ active: active }"
+  >
       <slot name="label_left"></slot>
-      <span class="input">
+      <div class="input">
         <label :for="vid">{{ title }}</label>
         <b-input
           :expanded="true"
@@ -13,8 +20,7 @@
           :placeholder="placeholder"
           :id="vid"
         />
-      </span>
-    </div>
+      </div>
     <div v-if="errors.length" class="errors has-text-danger">
       <ul>
         <li v-for="(error, key) in errors" :key="key">{{ error }}</li>
@@ -126,7 +132,6 @@ input[type="password"] {
   padding-bottom: 1rem;
   padding-top: 1rem;
   text-align: left;
-  display: flex;
   background: #fff;
   &.active {
     transition: 0.3s;
@@ -138,7 +143,7 @@ input[type="password"] {
 
   label {
     position: absolute;
-
+    pointer-events:none;
     text-transform: uppercase;
     left: 0.8rem;
     color: #9b9b9b;

@@ -5,6 +5,7 @@ import Register from '@/pages/Register/Register.vue';
 
 import Dashboard from '@/pages/Dashboard/Dashboard.vue';
 import Player from '@/pages/Player/Player.vue';
+import Assets from '@/pages/Player/Assets.vue';
 import Setting from '@/pages/Setting/Setting.vue';
 
 Vue.use(VueRouter);
@@ -28,8 +29,16 @@ const routes = [
   },
   {
     path: '/player/:id',
-    name: 'Player',
+    name: 'player',
     component: Player,
+    meta: {
+      layout: 'default',
+    },
+  },
+  {
+    path: '/assets/:id',
+    name: 'assets',
+    component: Assets,
     meta: {
       layout: 'default',
     },
