@@ -200,7 +200,7 @@ export default {
 <style lang="scss" scoped>
 .setting{
   padding: 0;
-  over  ow: hidden;
+  overflow: hidden;
   @media screen and (min-width: $tablet){
     padding: 2rem 0;
   }
